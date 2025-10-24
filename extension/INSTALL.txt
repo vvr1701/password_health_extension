@@ -1,0 +1,45 @@
+PASSWORD HEALTH & AUTOFILL CHROME EXTENSION
+===========================================
+
+INSTALLATION STEPS:
+-------------------
+
+1. Make sure you have these 5 files in ONE folder:
+   ✓ manifest.json  (566 bytes)
+   ✓ popup.html     (2.7 KB)
+   ✓ popup.js       (2.1 KB)
+   ✓ content.js     (7.9 KB)
+   ✓ icon.png       (70 bytes)
+
+2. Open Google Chrome
+
+3. Type in address bar: chrome://extensions/
+
+4. Turn ON "Developer mode" (top-right toggle)
+
+5. Click "Load unpacked"
+
+6. Select the folder with all 5 files
+
+7. Done! Extension should load successfully
+
+TROUBLESHOOTING:
+----------------
+
+If you see "Could not load javascript" error:
+- Delete the old folder completely
+- Re-download ALL 5 files fresh
+- Make sure files are not corrupted
+- Try a different folder location
+- Restart Chrome completely
+
+TEST IT:
+--------
+1. Visit: https://github.com/login
+2. Click in password field
+3. Type "test123" - should see "Weak" indicator!
+4. Click extension icon > Generate Password > Autofill Demo
+
+✓ Password strength shows in real-time
+✓ No page freezing or errors
+✓ Autofill works with visual feedback
