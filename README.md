@@ -35,11 +35,7 @@ A Chrome Extension (Manifest V3) that provides real-time password strength check
 2. Navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in top-right corner)
 4. Click **"Load unpacked"**
-5. Select the folder containing these extension files:
-   - `manifest.json`
-   - `popup.html`
-   - `popup.js`
-   - `content.js`
+5. Select the **`extension`** folder from this project
 6. The extension icon should now appear in your Chrome toolbar
 
 ### Step 2: Test the Extension
@@ -65,12 +61,15 @@ This project includes a test page (`index.html`) to demonstrate all features:
 
 ```
 chrome-extension/
-├── manifest.json      # Extension configuration (Manifest V3)
-├── popup.html         # Extension popup UI
-├── popup.js           # Password generation and autofill logic
-├── content.js         # Password strength checker and field detection
+├── extension/         # Chrome Extension files (load this folder)
+│   ├── manifest.json  # Extension configuration (Manifest V3)
+│   ├── popup.html     # Extension popup UI
+│   ├── popup.js       # Password generation and autofill logic
+│   ├── content.js     # Password strength checker and field detection
+│   └── icon.png       # Extension icon
 ├── index.html         # Test page for demonstration
-└── README.md          # This file
+├── README.md          # This file
+└── replit.md          # Project documentation
 ```
 
 ## 🛡️ Security Features
