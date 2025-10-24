@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Extension Test Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    h1 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 28px;
+      text-align: center;
+    }
+    
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .instructions {
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      margin-top: 30px;
+      border-radius: 4px;
+    }
+    
+    .instructions h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    
+    .instructions ol {
+      margin-left: 20px;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    
+    .instructions li {
+      margin-bottom: 5px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+    
+    .warning {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #92400e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Password Extension Demo</h1>
+    <p class="subtitle">Test the password health checker and autofill features</p>
+    
+    <form id="testForm">
+      <div class="form-group">
+        <label for="username">
+          Username or Email
+          <span class="badge">Smart Detection</span>
+        </label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username"
+          autocomplete="username"
+          placeholder="Enter your username"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="password">
+          Password
+          <span class="badge">Live Check</span>
+        </label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password"
+          autocomplete="current-password"
+          placeholder="Enter your password"
+        >
+      </div>
+      
+      <button type="submit">Sign In</button>
+    </form>
+    
+    <div class="instructions">
+      <h3>📋 How to Test:</h3>
+      <ol>
+        <li><strong>Password Health Check:</strong> Type in the password field and watch the real-time strength indicator appear below it</li>
+        <li><strong>Try Different Passwords:</strong>
+          <ul style="margin-top: 5px; margin-left: 20px;">
+            <li>"abc" → Weak (too short)</li>
+            <li>"password123" → Moderate (missing symbols)</li>
+            <li>"MyP@ssw0rd!2024" → Strong (12+ chars, all types)</li>
+          </ul>
+        </li>
+        <li><strong>Autofill Demo:</strong> Click the extension icon, generate a password, then click "Autofill Demo"</li>
+        <li><strong>Visual Feedback:</strong> Watch the fields highlight when autofilled!</li>
+      </ol>
+    </div>
+    
+    <div class="warning">
+      <strong>🔒 Security Note:</strong> This page demonstrates HTTPS verification. The extension checks the protocol before autofilling credentials.
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('testForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Form submitted! (This is just a demo - no data is sent)');
+    });
+  </script>
+</body>
+</html>

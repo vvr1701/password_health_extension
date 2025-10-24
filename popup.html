@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+    
+    h1 {
+      font-size: 20px;
+      margin: 0 0 20px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    #generateBtn {
+      background: #10b981;
+      color: white;
+    }
+    
+    #generateBtn:hover {
+      background: #059669;
+    }
+    
+    #autofillBtn {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    #autofillBtn:hover {
+      background: #2563eb;
+    }
+    
+    #passwordDisplay {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px;
+      border-radius: 8px;
+      word-break: break-all;
+      min-height: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .label {
+      font-size: 12px;
+      margin-bottom: 8px;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    
+    .info {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Password Manager</h1>
+  
+  <div class="container">
+    <div class="section">
+      <div class="label">Generate Secure Password:</div>
+      <button id="generateBtn">Generate Secure Password</button>
+      <div id="passwordDisplay">Click button to generate</div>
+    </div>
+    
+    <div class="section">
+      <div class="label">Autofill Demo:</div>
+      <button id="autofillBtn">Autofill Demo</button>
+      <div class="info">Fills first form with demo credentials</div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
