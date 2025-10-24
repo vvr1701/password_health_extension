@@ -60,6 +60,12 @@ function initPasswordHealthCheck() {
   const passwordFields = document.querySelectorAll('input[type="password"]');
   
   passwordFields.forEach(field => {
+    if (field.dataset.passwordCheckerInitialized) {
+      return;
+    }
+    
+    field.dataset.passwordCheckerInitialized = 'true';
+    
     createStrengthIndicator(field);
     
     field.addEventListener('input', () => {
@@ -217,11 +223,24 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 initPasswordHealthCheck();
 
+let observerTimeout;
 const observer = new MutationObserver(() => {
-  initPasswordHealthCheck();
+  clearTimeout(observerTimeout);
+  observerTimeout = setTimeout(() => {
+    initPasswordHealthCheck();
+  }, 100);
 });
 
-observer.observe(document.body, {
-  childList: true,
-  subtree: true
-});
+if (document.body) {
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
