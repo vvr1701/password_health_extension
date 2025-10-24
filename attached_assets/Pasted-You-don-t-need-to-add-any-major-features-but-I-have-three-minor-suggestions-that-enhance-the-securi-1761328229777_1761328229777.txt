@@ -1,0 +1,23 @@
+You don't need to add any major features, but I have three minor suggestions that enhance the security narrative and improve the demo experience without increasing complexity:
+
+Enhancements for Demo Impact
+1. Highlight the Security Principle (The "Why")
+While your current plan covers what you're doing, the demo is more impactful if you verbally mention a security concept related to the autofill.
+
+Suggestion: Modify the autofill logic slightly to check the page's protocol (window.location.protocol). Even in a demo, you can add a comment or console log in your code (and mention it during the presentation) that the autofill action would be blocked if the page wasn't using HTTPS (or a secure equivalent).
+
+Demo Impact: This shows you are thinking about Transport Layer Security and preventing credentials from being injected into vulnerable, plain-text HTTP sites.
+
+2. Improve Username Field Targeting
+Your autofill plan is to target the "first detected text/email field." This is a common failure point in real password managers.
+
+Suggestion: During your implementation, ensure the content.js looks for fields with the autocomplete="username" or autocomplete="email" attributes (or common names like name="email", name="user", id="username"). This makes your field detection logic more robust and closer to industry standards.
+
+Demo Impact: Makes your demo less brittle and showcases knowledge of HTML's autocomplete attributes often used by legitimate password managers.
+
+3. Add a Visual Cue for Autofill
+Once the autofill is complete, the user only sees the fields filled. It's helpful to give instant, visible confirmation that the extension performed the action.
+
+Suggestion: When content.js successfully fills the form fields, have it temporarily highlight the fields (e.g., a flash of yellow background that fades out after 500ms) or drop a quick "Credentials Injected!" banner in the corner.
+
+Demo Impact: Provides instant, undeniable visual feedback for the "Autofill Demo" button, making the functionality clear and impressive in a fast-paced presentation.

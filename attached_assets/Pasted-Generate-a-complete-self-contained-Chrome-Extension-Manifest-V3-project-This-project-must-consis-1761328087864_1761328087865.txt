@@ -1,0 +1,22 @@
+Generate a complete, self-contained Chrome Extension (Manifest V3) project. This project must consist of four files: 'manifest.json', 'popup.html', 'popup.js', and 'content.js'.
+
+**The project must meet these specific requirements:**
+
+1.  **Password Health Check (on any webpage):**
+    * The `content.js` script must immediately run on all pages and detect all `<input type="password">` fields.
+    * It must attach an **'input' event listener** to each password field to check the password strength in real-time as the user types.
+    * The strength check must use a **simple, self-contained JavaScript scoring function** (DO NOT use an external library like Zxcvbn to keep the project simple and within the free limit).
+    * The scoring function should rate the password as 'Weak' (less than 8 characters or only one character type), 'Moderate' (8-11 characters, two character types), or 'Strong' (12+ characters, all four types: uppercase, lowercase, number, symbol).
+    * It must **inject an HTML `<div>` element** immediately below the input field to display the strength status and color-code the background (red, orange, green) based on the score.
+
+2.  **Autofill Demo (triggered from the popup):**
+    * The `popup.html` must contain two buttons: "Generate Secure Password" and "Autofill Demo". It must also have a display area for the generated password.
+    * The `popup.js` must implement a **secure password generator** function (16 characters minimum, mixing all four character types).
+    * When "Generate Secure Password" is clicked, the new password must be displayed in the popup.
+    * When "Autofill Demo" is clicked, `popup.js` must send a message to the active tab's `content.js` with a hardcoded **demo username** ("demoUser") and the **generated password**.
+    * The `content.js` must listen for this message and attempt to fill the first detected text/email field (for username) and the first password field with the received credentials.
+
+3.  **Final Output Format:**
+    * Provide the complete source code for **each of the four files** (`manifest.json`, `popup.html`, `popup.js`, `content.js`) clearly labeled with file names and surrounded by code fences (```).
+    * Do not include an icon file; simply reference `icon.png` in the manifest.
+    * Provide **setup instructions** for loading the unpacked extension in Chrome.
